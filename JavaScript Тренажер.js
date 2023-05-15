@@ -709,7 +709,7 @@
 //             }
 //         }
 //     }
-    
+
 //     return res
 // }
 
@@ -918,11 +918,11 @@
 //         if (obj[key] && obj[key] >= a && obj[key] <= b) {
 //             res.push(obj);
 //         }};
-    
+
 //     return res
 //     }
-    
-    
+
+
 
 
 
@@ -1075,13 +1075,259 @@
 // ========================================================================
 
 
-У вас есть переменная data, которая содержит входные пользовательские данные.
+// У вас есть переменная data, которая содержит входные пользовательские данные.
 
-Напишите JavaScript код, который определяет все ли числа в массиве data четные и записывает логический результат в переменную result.
+// Напишите JavaScript код, который определяет все ли числа в массиве data четные и записывает логический результат в переменную result.
 
-Sample Input 1:
+// Sample Input 1:
 
-[2, 4, 6, 8, 10]
-Sample Output 1:
+// [2, 4, 6, 8, 10]
+// Sample Output 1:
+// true
 
-true
+// data = [2, 4, 6, 8, 10]
+
+
+// let result = data.filter(x => x % 2 == 0).length == data.length
+
+// console.log(result);
+
+
+// ================================
+
+
+// У вас есть переменная data, которая содержит входные пользовательские данные.
+
+// Напишите JavaScript код, который определяет все ли числа в массиве data нечетные и записывает логический результат в переменную result.
+
+// Sample Input 1:
+
+// [1, 3, 5]
+// Sample Output 1:
+
+// true
+
+
+// let data = [1, 3, 5];
+
+// result = data.filter(x => x % 2 != 0).length == data.length;
+
+// console.log(result)
+
+
+
+// ==========
+
+// У вас есть переменные num, data которые содержат входные пользовательские данные.
+
+// Напишите JavaScript код, который определяет все ли числа в массиве data больше num и записывает логический результат в переменную result.
+
+// Sample Input 1:
+
+// 10 | [20, 30]
+// Sample Output 1:
+
+// true
+
+
+
+
+// let [num, data] = '10 | [20, 30]'.split(" | ");
+// num  = Number(num);
+// data = JSON.parse(data);
+
+// result = data.filter(x => x > num).length == data.length;
+
+// console.log(result)
+
+
+// ==========================
+
+
+// Напишите JavaScript код, который сортирует числовые элементы массива data в порядке возрастания и записывает результат через запятую в переменную result.
+// Sample Input:
+
+// [1, 3, 2, 4, 5, 10]
+// Sample Output:
+
+// 1, 2, 3, 4, 5, 10
+
+// let data = [1, 3, 2, 4, 5, 10];
+
+// let result = data.sort((a, b) => a - b).join(', ');
+
+// console.log(result)
+
+// ==================================================
+// У вас есть переменная data, которая содержит входные пользовательские данные.
+
+// Напишите JavaScript код, который сортирует числовые элементы массива data в порядке убывания и записывает результат через запятую в переменную result.
+
+// Sample Input:
+
+// [1, 3, 2, 4, 5, 10]
+// Sample Output:
+
+// 10, 5, 4, 3, 2, 1
+
+// let data = [1, 3, 2, 4, 5, 10];
+
+// let result = data.sort((a, b) => a - b).reverse().join(', ');
+
+// console.log(result)
+
+
+// =========================================================
+
+
+// Напишите JavaScript код, который считает количество тегов и записывает результат через запятую в переменную result.
+
+// Sample Input:
+
+// ["javascript", "php", "javascript", "sql", "java", "python", "sql"]
+// Sample Output:
+
+// javascript: 2, php: 1, sql: 2, java: 1, python: 1
+
+
+// let tags = ["javascript", "php", "javascript", "sql", "java", "python", "sql"]
+
+// let result = {};
+// let res = {};
+
+// for (tag of tags) {
+//     if (res[tag]) {
+//         res[tag]++;
+//     } else {
+//         res[tag] = 1
+//     }
+// }
+// result = Object.entries(res)
+//     .map(([key, value]) => `${key}: ${value}`)
+//     .join(', ');
+
+// console.log(result)
+
+
+
+
+
+// ===========================================================
+
+// У вас есть переменная players, которая содержит входные пользовательские данные.
+
+// В players содержится объект с игроками:
+
+let players = [
+    {
+        "name": "Макс",
+        "x": 100,
+        "y": 50
+    },
+    {
+        "name": "Дастин",
+        "x": 200,
+        "y": 100
+    },
+    {
+        "name": "Стив",
+        "x": 300,
+        "y": 150
+    },
+    {
+        "name": "Билли",
+        "x": 300,
+        "y": 170
+    },
+    {
+        "name": "Майк",
+        "x": 300,
+        "y": 170
+    },
+    {
+        "name": "Лукас",
+        "x": 200,
+        "y": 170
+    }
+]
+// Напишите JavaScript код, который находит индекс игрока по имени Майк и записывает результат в переменную result.
+
+// Sample Input:
+
+// [{"name":"Макс","x":100,"y":50},{"name":"Дастин","x":200,"y":100},{"name":"Стив","x":300,"y":150},{"name":"Билли","x":300,"y":170},{"name":"Майк","x":300,"y":170},{"name":"Лукас","x":200,"y":170}]
+// Sample Output:
+
+// 4
+
+
+// let result;
+
+
+// let mike = players.find(x => x.name == 'Майк')
+// // result = players.findIndex(player => player == mike)
+// result = players.map(el => el.name).indexOf('Майк')
+// console.log(result)
+
+
+
+
+// ========================================
+
+
+// У вас есть переменная starships, которая содержит входные пользовательские данные.
+
+// В starships содержится объект с кораблями:
+
+let starships = [
+  {
+  "uss_enterprise": {
+    "name": "USS Enterprise",
+    "shields": false,
+    "weapons": true,
+    "engine_power": 90
+  },
+  "millennium_falcon": {
+    "name": "Millennium Falcon",
+    "shields": true,
+    "weapons": true,
+    "engine_power": 100
+  },
+  "prometheus": {
+    "name": "Prometheus",
+    "shields": false,
+    "weapons": true,
+    "engine_power": 70
+  },
+  "dragonfly": {
+    "name": "Dragonfly",
+    "shields": true,
+    "weapons": true,
+    "engine_power": 70
+  },
+  "ikar": {
+    "name": "Ikar",
+    "shields": false,
+    "weapons": true,
+    "engine_power": 70
+  },
+  "dedalus": {
+    "name": "Dedalus",
+    "shields": true,
+    "weapons": true,
+    "engine_power": 70
+  }
+ }
+]
+// Напишите JavaScript код, который находит только те корабли у которых активированы щиты и записывает названия кораблей через запятую в переменную result.
+
+// Sample Input:
+
+// [{"uss_enterprise":{"name":"USS Enterprise","shields":false,"weapons":true,"engine_power":90},"millennium_falcon":{"name":"Millennium Falcon","shields":true,"weapons":true,"engine_power":100},"prometheus":{"name":"Prometheus","shields":false,"weapons":true,"engine_power":70},"dragonfly":{"name":"Dragonfly","shields":true,"weapons":true,"engine_power":70},"ikar":{"name":"Ikar","shields":false,"weapons":true,"engine_power":70},"dedalus":{"name":"Dedalus","shields":true,"weapons":true,"engine_power":70}}]
+// Sample Output:
+
+// Millennium Falcon, Dragonfly, Dedalus
+
+
+let result = Object.entries(starships)[0].filter(key => key['shields'] == true)
+
+console.log(result)
