@@ -1279,44 +1279,44 @@ let players = [
 // В starships содержится объект с кораблями:
 
 let starships = [
-  {
-  "uss_enterprise": {
-    "name": "USS Enterprise",
-    "shields": false,
-    "weapons": true,
-    "engine_power": 90
-  },
-  "millennium_falcon": {
-    "name": "Millennium Falcon",
-    "shields": true,
-    "weapons": true,
-    "engine_power": 100
-  },
-  "prometheus": {
-    "name": "Prometheus",
-    "shields": false,
-    "weapons": true,
-    "engine_power": 70
-  },
-  "dragonfly": {
-    "name": "Dragonfly",
-    "shields": true,
-    "weapons": true,
-    "engine_power": 70
-  },
-  "ikar": {
-    "name": "Ikar",
-    "shields": false,
-    "weapons": true,
-    "engine_power": 70
-  },
-  "dedalus": {
-    "name": "Dedalus",
-    "shields": true,
-    "weapons": true,
-    "engine_power": 70
-  }
- }
+    {
+        "uss_enterprise": {
+            "name": "USS Enterprise",
+            "shields": false,
+            "weapons": true,
+            "engine_power": 90
+        },
+        "millennium_falcon": {
+            "name": "Millennium Falcon",
+            "shields": true,
+            "weapons": true,
+            "engine_power": 100
+        },
+        "prometheus": {
+            "name": "Prometheus",
+            "shields": false,
+            "weapons": true,
+            "engine_power": 70
+        },
+        "dragonfly": {
+            "name": "Dragonfly",
+            "shields": true,
+            "weapons": true,
+            "engine_power": 70
+        },
+        "ikar": {
+            "name": "Ikar",
+            "shields": false,
+            "weapons": true,
+            "engine_power": 70
+        },
+        "dedalus": {
+            "name": "Dedalus",
+            "shields": true,
+            "weapons": true,
+            "engine_power": 70
+        }
+    }
 ]
 // Напишите JavaScript код, который находит только те корабли у которых активированы щиты и записывает названия кораблей через запятую в переменную result.
 
@@ -1328,6 +1328,497 @@ let starships = [
 // Millennium Falcon, Dragonfly, Dedalus
 
 
-let result = Object.entries(starships)[0].filter(key => key['shields'] == true)
+// let result = Object.entries(starships[0]).filter(([key, value]) => value.shields == true).map(([key, value]) => value.name).join(', ')
+
+// console.log(result)
+
+
+
+// ==================================================/
+
+// У вас есть переменныe size, position, data, которые содержат входные пользовательские данные.
+
+// Напишите JavaScript код, который заполняет массив data до нужного размера size нулями (0) в зависимости от значения position, которое может принимать значения: left или right.
+
+// Если размер массива data  больше размера size, тогда в переменную result записываем сообщение: 
+// Неверный размер
+// Если размер массива data  равен значению переменной size, тогда в переменную result записываем: 
+// Массив data в виде строки через запятую.
+// Если значение переменной position не равно left или right, тогда в переменную result записываем сообщение:
+// Неверная позиция
+// Сначала проверяем на корректность размера, потом проверяем на корректность позиции.
+// Результат записать в виде строки через запятую в переменную result.
+
+// Sample Input 1:
+
+// 5 | left | [1, 2, 3]
+// Sample Output 1:
+
+// 0, 0, 1, 2, 3
+// Sample Input 2:
+
+// 5 | right | [1, 2, 3, 4, 5]
+// Sample Output 2:
+
+// 1, 2, 3, 4, 5
+// Sample Input 3:
+
+// 2 | right | [1, 2, 3, 4, 5]
+// Sample Output 3:
+
+// Неверный размер
+// Sample Input 4:
+
+// 7 | center | [1, 2, 3, 4, 5, 6, 7]
+// Sample Output 4:
+
+// Неверная позиция
+// Sample Input 5:
+
+// 10 | right | [5, 4, 1, 6, 7]
+// Sample Output 5:
+
+// 5, 4, 1, 6, 7, 0, 0, 0, 0, 0
+
+
+
+// function extendingArray(size, position, data) {
+//     let result;
+
+//     if (data.length > size) {
+//         result = 'Неверный размер'
+//     } else {
+//         let res;
+//         res = new Array(size - data.length).fill(0)
+//         if (position == 'left') {
+//             result = [...res, ...data].join(', ');
+//         } else if (position == 'right') {
+//             result = [...data, ...res].join(', ');
+//         } else {
+//             result = 'Неверная позиция'
+//         };
+//     }
+//     return result 
+// }
+
+
+// console.log(extendingArray(5, 'left', [1, 2, 3]) == '0, 0, 1, 2, 3');
+// console.log(extendingArray(5, 'right', [1, 2, 3, 4, 5]) == '1, 2, 3, 4, 5');
+// console.log(extendingArray(2, 'right', [1, 2, 3, 4, 5]) == 'Неверный размер');
+// console.log(extendingArray(7, 'center', [1, 2, 3, 4, 5, 6, 7]) == 'Неверная позиция');
+// console.log(extendingArray(10, 'right', [5, 4, 1, 6, 7]) == '5, 4, 1, 6, 7, 0, 0, 0, 0, 0');
+
+
+
+
+// ===============================================================================
+
+
+
+// У вас есть переменная data, которая содержит входные пользовательские данные.
+
+// Напишите JavaScript код, который находит максимальное число в двумерном массиве произвольного размера и записывает результат в переменную result.
+
+// Sample Input:
+
+// [[1, 2, 3],[4, 42, 6],[7, 8, 9]]
+// Sample Output:
+
+// 42
+
+// let data = [[1, 2, 3],[4, 42, 6],[7, 8, 9]];
+
+
+
+// let result = data[0][0];
+// for (item of data) {
+//     let res = Math.max(...item);
+//     result = res > result ? res: result;
+// }
+
+// console.log(result)
+
+
+
+// ================================
+
+
+// У вас есть переменные k, data которые содержат входные пользовательские данные.
+
+// Напишите JavaScript код, который находит число k в двумерном в массиве data и записывает логический результат в переменную result.
+
+// Пример массива:
+
+// [
+//   [1,2,3],
+//   [4,5,6],
+//   [7,8,9]
+// ]
+// Важно! Массив data может быть любого размера.
+
+// Sample Input 1:
+
+// 5 | [[1,2,3],[4,5,6],[7,8,9]]
+// Sample Output 1:
+
+// true
+// Sample Input 2:
+
+// 0 | [[1,2,3],[4,5,6],[7,8,9]]
+// Sample Output 2:
+
+// false
+
+// let data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+// let n = 11
+
+// let result = false;
+
+
+// for (items of data) {
+//     for (item of items) {
+//         if (item == n) {
+//             result = true
+//         }
+//     }
+// }
+
+
+// console.log(result)
+
+
+
+// ================================================================================================
+
+
+// У вас есть переменная data, которая содержит входные пользовательские данные.
+
+// Напишите JavaScript код, который будет находить четные и нечетные числа и записывать результат в виде строки:
+// (четные) (нечетные) в переменную result.
+
+// Важно! Четные и нечетные числа должны быть отсортированы в порядке возрастания.
+
+// Sample Input:
+
+// [4, 3, 7, 1, 8, 6, 5, 2]
+// Sample Output:
+
+// (2, 4, 6, 8) (1, 3, 5, 7)
+
+// let data = [4, 3, 7, 1, 8, 6, 5, 2];
+
+// let even = [];
+// let odd = [];
+
+// for (item of data) {
+//     if (item % 2 == 0) {
+//         even.push(item)
+//     } else {
+//         odd.push(item)
+//     }
+// }
+
+// even.sort((x,y) => x-y);
+// odd.sort((x,y) => x-y);
+// result = `(${even.join(', ')}) (${odd.join(', ')})`
+// console.log(result)
+
+
+
+// ========================================================================================
+
+
+// У вас есть переменные n и items, которые содержат входные пользовательские данные.
+
+// Напишите JavaScript код, который перемещает элементы массива items из начала массива в конец массива и записывается результат в переменную result.
+
+// n - число элементов которые необходимо переместить.
+
+// Sample Input:
+
+// 3 | [1, 3, 2, 5, 9, 8, 1, 2]
+// Sample Output:
+
+// 5, 9, 8, 1, 2, 1, 3, 2
+
+
+// let data = [1, 3, 2, 5, 9, 8, 1, 2];
+// let n = 3;
+
+
+// let result;
+// let res;
+
+// res = data.splice(0, n);
+// result = new Array(...data, ...res).join(', ');
+
+// console.log(data)
+
+// console.log(result)
+
+
+
+// ==============================================================
+
+
+// У вас есть переменные n и items, которые содержат входные пользовательские данные.
+
+// Напишите JavaScript код, который копирует элементы массива items из начала массива в конец массива и записывается результат в переменную result.
+
+// n - число элементов которые необходимо скопировать.
+
+// Sample Input:
+
+// 2 | [1, 2, 3]
+// Sample Output:
+
+// 1, 2, 3, 1, 2
+
+// let n = 2;
+// let items = [1, 2, 3];
+
+// let res = new Array(...items);
+// res = res.splice(0, n);
+
+// let result = new Array(...items, ...res)
+
+// console.log(result)
+
+
+
+
+
+// ===============================================================
+
+
+// У вас есть переменные health и items, которые содержат входные пользовательские данные.
+
+// Напишите JavaScript код, который увеличивает значение переменной health в зависимости от того, сколько зелья находится в массиве items и записывается результат в переменную result.
+
+// Важно!
+
+// Одно "Зелье" это +10 к health
+// Итоговое значение переменной result не должно быть больше 100. Если значение переменной result получается больше 100, тогда устанавливаем значении переменной result равной 100.
+// Sample Input 1:
+
+// 70 | ["Меч", "Щит", "Свиток", "Зелье"]
+// Sample Output 1:
+
+// 80
+// Sample Input 2:
+
+// 70 | ["Меч", "Щит", "Зелье", "Свиток", "Зелье"]
+// Sample Output 2:
+
+// 90
+
+// let health = 70;
+// let items = ["Меч", "Щит", "Зелье", "Свиток", "Зелье"];
+
+// items = items.filter(x => x == "Зелье").length;
+
+// result = items == 0? health: health + items * 10 > 100 ? 100 : health + items * 10;
+
+
+// console.log(result)
+
+
+
+// ======================================================================================
+
+
+
+
+// У вас есть переменные power и items, которые содержат входные пользовательские данные.
+
+// Напишите JavaScript код, который увеличивает значение переменной power в зависимости от того, сколько улучшений/бустов находится в массиве items и записывается результат в переменную result.
+
+// Улучшения:
+
+// "Энергетик": power + 5
+// "Кофе": power + 10
+// Важно!
+
+// Итоговое значение переменной result не должно быть больше 100. Если значение переменной result получается больше 100, тогда устанавливаем значении переменной result равной 100.
+// Sample Input:
+
+// 70 | ["Меч", "Щит", "Кофе", "Зелье", "Энергетик"]
+// Sample Output:
+
+// 85
+
+
+
+// let power = 70;
+// let items = ["Меч", "Щит", "Кофе", "Зелье", "Энергетик"];
+
+// let energetic = items.filter(x => x == "Энергетик").length * 5;
+// let coffee = items.filter(x => x == "Кофе").length * 10;
+
+// result = power + energetic + coffee > 100? 100 : power + energetic + coffee
+
+
+// console.log(result)
+
+
+
+
+// =======================================================================
+
+
+// У вас есть переменные arr1 и arr2 которые содержат входные пользовательские данные.
+
+// Напишите JavaScript код, который складывает все числа одного массива с числами второго массива и записывает результат через запятую в переменную result.
+
+// Размеры массивов одинаковые.
+
+
+// Sample Input:
+
+// [2, 1, 3] | [1, 2, 2]
+// Sample Output:
+
+// 3, 3, 5
+
+// let arr1 = [2, 1, 3];
+// let arr2 = [1, 2, 2];
+
+// let result;
+
+// for (i = 0; i < arr1.length; i++) {
+//     result.push(arr1[i] + arr2[i])
+// }
+
+// console.log(result)
+
+
+// another WebAssembly
+// result = arr1.map((x, i) => x + arr2[i]).join(', ')
+
+
+// ================================================================
+
+
+
+// У вас есть переменная data которая содержит входные пользовательские данные.
+
+// Напишите JavaScript код, который проходит по массиву data, и записывает символы вместе с числом их повторений в переменную result.
+
+
+// Sample Input:
+
+// ["a", "a", "a", "b", "b", "c", "c", "a", "a", "a"]
+// Sample Output:
+
+// a3b2c2a3
+
+// let data = ["a", "a", "a", "b", "b", "c", "c", "a", "a", "a"];
+// let result = '';
+// let item = data[0];
+// let res = []
+
+// for (i of data) {
+//     if (i != item) {
+//         result += res[0] + res.length
+//         res = [];
+//         res.push(i);
+//         item = i;
+//     } else {
+//         res.push(i)
+//     }
+
+
+// }
+// result += res[0] + res.length;
+
+
+// console.log(result)
+
+
+
+
+// ============================================================================================
+
+
+// У вас есть переменная str которая содержит входные пользовательские данные.
+
+// Напишите JavaScript код, который:
+
+// Читает строку str  вида: a2b3c1
+// Воссоздает массив: a2b3c1 -> ["a","a","b","b","b","c"]
+// Записывает воссозданный массив через запятую в переменную result.
+// Sample Input:
+
+// a2b3c1
+// Sample Output:
+
+// a, a, b, b, b, c
+// let str = 'a2b3c1';
+// let result = [];
+// let x;
+
+// let res = str.split('');
+// for (i of res) {
+//     if (!isNaN(parseInt(i))) {
+//         result.push(...x.repeat(i).split(''))
+//     } else {
+//         x = i
+//     }
+// }
+// result = result.join(', ')
+// console.log(result)
+
+
+
+// ====================================================================================================
+
+
+
+
+// У вас есть переменная grid которая содержит входные пользовательские данные.
+
+// Напишите JavaScript код, который находит сумму всех чисел по двум диагоналям двумерного массива grid и записывает результат в переменную result.
+
+// Обратите внимание на то, что ваш код должен работать для любого размера массива grid например: 2х2, 3х3, 4х4 и тд...
+
+// Важно! Вам необходимо убедиться в том, что размер массива по высоте и ширине одинаковый! Если размеры массива grid тогда записываем сообщение "Массив некорректный" в переменную result.
+
+// Sample Input 1:
+
+// [[1, 0, 1],[0, 1, 0],[1, 1, 1]]
+// Sample Output 1:
+
+// 6
+// Sample Input 2:
+
+// [[1, 0, 1],[0, 1, 0],[1, 1, 1],[1, 1, 1]]
+// Sample Output 2:
+
+// Массив некорректный
+
+
+// let grid = [[1, 0, 1], [0, 1, 0], [1, 1, 1], [0, 1, 0]];
+let grid = [[1, 0, 0, 1], [0, 1, 1, 0], [1, 1, 1, 1], [0, 1, 0, 1]];
+
+
+let result = [];
+let i = 0;
+let j = grid.length - 1;
+
+
+let long = grid.map(x => x.length).filter(x => x == grid.length).length == grid.length;
+console.log(long)
+if (long) {
+    for (i = 0; i < grid.length; i++) {
+        result.push(grid[i][i]);
+        result.push(grid[j][j]);
+        j -= 1;
+
+    }
+    result = result.reduce((x, y) => x + y)
+} else {
+    result = 'Массив некорректный'
+}
+
 
 console.log(result)
